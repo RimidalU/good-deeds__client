@@ -4,11 +4,11 @@ export interface IUser {
 	nickName: string;
 	email: string;
 	password: string;
-	deeps: IDeep[];
+	deeds: IDeed[];
 	frends: IUser[];
 }
 
-export interface IDeep {
+export interface IDeed {
 	_id: string;
 	name: string;
 	description: string;
