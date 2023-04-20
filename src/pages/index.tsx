@@ -1,5 +1,5 @@
 import Head from "next/head";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/Home.module.scss";
 import { IUser } from "@/interfaces/types";
 
 interface IUsersProps {
@@ -12,11 +12,9 @@ export default function Home({ user }: IUsersProps) {
 			<Head>
 				<title>My Deeds</title>
 			</Head>
-			<main className={styles.main}>
-				<div className="wrapper">
-					<h1 className="title">Home Page {user.name} </h1>
-				</div>
-			</main>
+			<div className="wrapper">
+				<h1 className="title">Home Page {user.name} </h1>
+			</div>
 		</>
 	);
 }

@@ -14,18 +14,16 @@ export default function User({ user }: IUserProps) {
 	return (
 		<>
 			<Head>
-				<title>User Deeds</title>
+				<title>{user.name} Deeds</title>
 			</Head>
-			<main className={styles.main}>
-				<div className="wrapper">
-					<h1 className="title">User {user.name} Page</h1>
-					<h2>{user.nickName}</h2>
-					<div className="button__set">
-						<button className="uset_btn">follow</button>
-						<button className="uset_btn">unfollow</button>
-					</div>
+			<div className="wrapper">
+				<h1 className="title">User {user.name} Page</h1>
+				<h2>{user.nickName}</h2>
+				<div className="button__set">
+					<button className="uset_btn">follow</button>
+					<button className="uset_btn">unfollow</button>
 				</div>
-			</main>
+			</div>
 		</>
 	);
 }
