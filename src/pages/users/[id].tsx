@@ -1,5 +1,5 @@
 import Head from "next/head";
-import styles from "@/styles/Home.module.css";
+import styles from "@/styles/Users.module.scss";
 import { useRouter } from "next/router";
 import { IUser } from "@/interfaces/types";
 import { GetStaticPropsContext } from "next";
@@ -10,20 +10,34 @@ interface IUserProps {
 
 export default function User({ user }: IUserProps) {
 	const { query } = useRouter();
+console.log(user);
 
 	return (
 		<>
 			<Head>
 				<title>{user.name} Deeds</title>
 			</Head>
-			<div className="wrapper">
-				<h1 className="title">User {user.name} Page</h1>
-				<h2>{user.nickName}</h2>
-				<div className="button__set">
-					<button className="uset_btn">follow</button>
-					<button className="uset_btn">unfollow</button>
+			<section className={styles.user__section}>
+				<div className={styles.user__about}>
+					<h1 className={styles.title}>NickName: {user.nickName}</h1>
+					<h2 className={styles.subtitle}> Name: {user.name}</h2>
 				</div>
-			</div>
+				<button className={styles.button}>follow</button>
+			</section>
+			<section className="deeds__section">
+				<ul className="deeds__set">
+					{user.deeds.length > 0 &&
+						user.deeds.map((deed) => (
+							<li className="deed__item" key={deed._id}>
+								<article className="deed__body">
+									<h3 className="deed__name">{deed.name} </h3>
+									<p className="deed__description">{deed.description} </p>
+									<span>{deed.status}</span>
+								</article>
+							</li>
+						))}
+				</ul>
+			</section>
 		</>
 	);
 }

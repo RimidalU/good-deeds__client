@@ -15,12 +15,13 @@ export default function Users({ users }: IUsersProps) {
 			</Head>
 			<div className="wrapper">
 				<h1 className="title">Users Page</h1>
+				<p>Here you can find interesting doers of good deeds and subscribe to them.</p>
 				<section className="users__list">
-					<ul className="user__set">
+					<ul className={styles.user__set}>
 						{users.map((user) => (
 							<li className="set_item" key={user._id}>
 								<Link href={`users/${user._id}`}>
-									<article className="user__item">{user.nickName}</article>
+									<article className={styles.user__item}>{user.nickName}</article>
 								</Link>
 							</li>
 						))}

@@ -1,1 +1,42 @@
+@import "./variables";
 
+.user__set {
+	display: flex;
+	flex-direction: column;
+	gap: 2rem;
+	.user__item {
+		padding: 2rem;
+		background-color: aqua;
+	}
+}
+
+.user__section {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	.user__about {
+		.title {
+			margin-bottom: 1rem;
+		}
+		.subtitle {
+		}
+	}
+	.button {
+		width: 150px;
+		text-align: center;
+		font-family: JosefinSans;
+		font-weight: 400;
+		font-size: 1rem;
+		padding: 0.7rem 0;
+		border: 1px solid $accent-color;
+		border-radius: 4px;
+		cursor: pointer;
+		transition: $transition-animation;
+		background-color: $background-color;
+
+		&:hover {
+			background-color: $font-color;
+			color: $white-color;
+		}
+	}
+}
