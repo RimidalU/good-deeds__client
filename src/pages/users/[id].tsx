@@ -18,16 +18,18 @@ export default function User({ user }: IUserProps) {
 			<Head>
 				<title>{user.name} Deeds</title>
 			</Head>
-			<section className={styles.user__section}>
-				<div className={styles.user__about}>
-					<h1 className={styles.title}>NickName: {user.nickName}</h1>
-					<h2 className={styles.subtitle}> Name: {user.name}</h2>
-				</div>
-				<button className={styles.button}>follow</button>
-			</section>
-			<section className="deeds__section">
-				<DeedsSet deeds={user.deeds} />
-			</section>
+			<div className="wrapper">
+				<section className={styles.user__section}>
+					<div className={styles.user__about}>
+						<h1 className={styles.title}>NickName: {user.nickName}</h1>
+						<h2 className={styles.subtitle}> Name: {user.name}</h2>
+					</div>
+					<button className={styles.button}>follow</button>
+				</section>
+				<section className="deeds__section">
+					<DeedsSet deeds={user.deeds} />
+				</section>
+			</div>
 		</>
 	);
 }
