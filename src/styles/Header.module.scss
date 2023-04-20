@@ -1,0 +1,27 @@
+.header {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem;
+	.header__title {
+		margin-left: 5rem;
+	}
+	.nav__set {
+		display: flex;
+		flex-direction: row;
+		flex: 0 0 100%;
+		justify-content: center;
+		gap: 5rem;
+		text-transform: uppercase;
+	}
+	.user__control {
+		display: flex;
+		gap: 1rem;
+		.user__link {
+		}
+
+		.user__button {
+		}
+	}
+}
