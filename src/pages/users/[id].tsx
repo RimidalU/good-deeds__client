@@ -3,6 +3,7 @@ import styles from "@/styles/Users.module.scss";
 import { useRouter } from "next/router";
 import { IUser } from "@/interfaces/types";
 import { GetStaticPropsContext } from "next";
+import DeedsSet from "@/components/DeedsSet";
 
 interface IUserProps {
 	user: IUser;
@@ -10,7 +11,7 @@ interface IUserProps {
 
 export default function User({ user }: IUserProps) {
 	const { query } = useRouter();
-console.log(user);
+	console.log(user);
 
 	return (
 		<>
@@ -25,18 +26,7 @@ console.log(user);
 				<button className={styles.button}>follow</button>
 			</section>
 			<section className="deeds__section">
-				<ul className="deeds__set">
-					{user.deeds.length > 0 &&
-						user.deeds.map((deed) => (
-							<li className="deed__item" key={deed._id}>
-								<article className="deed__body">
-									<h3 className="deed__name">{deed.name} </h3>
-									<p className="deed__description">{deed.description} </p>
-									<span>{deed.status}</span>
-								</article>
-							</li>
-						))}
-				</ul>
+				<DeedsSet deeds={user.deeds} />
 			</section>
 		</>
 	);

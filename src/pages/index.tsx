@@ -1,6 +1,7 @@
 import Head from "next/head";
 import styles from "@/styles/Home.module.scss";
 import { IUser } from "@/interfaces/types";
+import DeedsSet from "@/components/DeedsSet";
 
 interface IUsersProps {
 	user: IUser;
@@ -14,6 +15,9 @@ export default function Home({ user }: IUsersProps) {
 			</Head>
 			<div className="wrapper">
 				<h1 className="title">Home Page {user.name} </h1>
+				<section className="deeds__section">
+					<DeedsSet deeds={user.deeds} />
+				</section>
 			</div>
 		</>
 	);
