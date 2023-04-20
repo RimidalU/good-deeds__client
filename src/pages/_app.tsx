@@ -1,16 +1,25 @@
+import Layout from "@/components/Layout";
+import type { ReactElement } from "react";
+import type { AppProps } from "next/app";
+import Head from "next/head";
+
 import "@/styles/globals.css";
-import { ReactNode } from "react";
 
-import { AppContext, AppInitialProps, AppLayoutProps } from "next/app";
-import type { NextComponentType } from "next";
-
-const MyApp: NextComponentType<AppContext, AppInitialProps, AppLayoutProps> = ({
-	Component,
-	pageProps,
-}: AppLayoutProps) => {
-	const getLayout = Component.getLayout || ((page: ReactNode) => page);
-
-	return getLayout(<Component {...pageProps} />);
+type AppPropsWithLayout = AppProps & {
+	Component: ReactElement;
 };
 
-export default MyApp;
+export default function MyApp({ Component, pageProps }: AppPropsWithLayout) {
+	return (
+		<>
+			<Head>
+				<meta name="description" content="Good Deeds List App" />
+				<meta name="viewport" content="width=device-width, initial-scale=1" />
+				<link rel="icon" href="/logo.svg" />
+			</Head>
+			<Layout>
+				<Component {...pageProps} />
+			</Layout>
+		</>
+	);
+}
