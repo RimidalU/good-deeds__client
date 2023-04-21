@@ -15,7 +15,7 @@ export default function User({ user }: IUserProps) {
 	return (
 		<>
 			<Head>
-				<title>{user.name} Deeds</title>
+				<title>@{user.nickName} Deeds</title>
 			</Head>
 			<div className="wrapper">
 				<section className={styles.user__section}>

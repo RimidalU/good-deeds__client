@@ -1,8 +1,30 @@
-$font-color: #1D2D3E;
+$font-color: #005b68;
+$light-color: #7dc3cb;
 $font-danger: #f23d3d;
-$background-color: #FAFAFA;
-$secondary-color: #1C2A3B;
+$background-color: #bbdddf;
+$secondary-color: #adcacb;
 $danger-color: #fed9db;
 $white-color: #fff;
-$accent-color: #ffbf00;
-$transition-animation: all .6s ease;
+$accent-color: #ff8007;
+$transition-animation: all 0.6s ease;
+
+.pending {
+	background-color: rgba($color: $secondary-color, $alpha: 1);
+	& select {
+		background-color: #dce6e6;
+	}
+}
+
+.inProgress {
+	background-color: #45c245;
+	& select {
+		background-color: #38e238;
+	}
+}
+
+.done {
+	background-color: #ffebd9;
+	& select {
+		background-color: #FFF4EA;
+	}
+}
