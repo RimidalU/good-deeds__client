@@ -19,6 +19,13 @@ a {
 	color: inherit;
 	display: inline-block;
 	transition: $transition-animation;
+	padding: 0.5rem;
+
+	&:hover {
+		background-color: $accent-color;
+		color: $white-color;
+		border-radius: 4px;
+	}
 }
 
 li {
@@ -40,4 +47,23 @@ body,
 	max-width: 1020px;
 	padding: 1rem 2rem;
 	margin: 0 auto;
+}
+
+button {
+	width: 150px;
+	text-align: center;
+	font-weight: 400;
+	font-size: 1rem;
+	padding: 0;
+	border: 1px solid $accent-color;
+	border-radius: 4px;
+	cursor: pointer;
+	transition: $transition-animation;
+	background-color: $danger-color;
+	color: $secondary-color;
+
+	&:hover {
+		background-color: $accent-color;
+		color: $white-color;
+	}
 }

@@ -21,22 +21,4 @@
 		.subtitle {
 		}
 	}
-	.button {
-		width: 150px;
-		text-align: center;
-		font-family: JosefinSans;
-		font-weight: 400;
-		font-size: 1rem;
-		padding: 0.7rem 0;
-		border: 1px solid $accent-color;
-		border-radius: 4px;
-		cursor: pointer;
-		transition: $transition-animation;
-		background-color: $background-color;
-
-		&:hover {
-			background-color: $font-color;
-			color: $white-color;
-		}
-	}
 }

@@ -24,7 +24,7 @@ export default function User({ user }: IUserProps) {
 						<h1 className={styles.title}>NickName: {user.nickName}</h1>
 						<h2 className={styles.subtitle}> Name: {user.name}</h2>
 					</div>
-					<button className={styles.button}>follow</button>
+					<button className={styles.button}>Follow</button>
 				</section>
 				<section className="deeds__section">
 					<DeedsSet deeds={user.deeds} />

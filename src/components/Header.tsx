@@ -5,8 +5,8 @@ export default function Header() {
 	const isAuth = true;
 
 	return (
-		<header className={styles.header}>
-			<div className="wrapper">
+		<header className="header">
+			<div className={`wrapper ${styles.header}`}>
 				<h1 className={styles.header__title}>Good Deeds</h1>
 				<nav className={styles.header__nav}>
 					<ul className={styles.nav__set}>
@@ -28,9 +28,9 @@ export default function Header() {
 						<a className={styles.user__link} href="#">
 							UserName
 						</a>
-						<a className={styles.user__button} href="#">
+						<button className={styles.user__button}>
 							LogOut
-						</a>
+						</button>
 					</div>
 				) : (
 					<div className={styles.user__control}>
