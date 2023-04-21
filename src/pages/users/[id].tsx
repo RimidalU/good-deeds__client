@@ -11,7 +11,6 @@ interface IUserProps {
 
 export default function User({ user }: IUserProps) {
 	const { query } = useRouter();
-	console.log(user);
 
 	return (
 		<>
