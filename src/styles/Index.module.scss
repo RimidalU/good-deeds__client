@@ -1,11 +1,35 @@
+@import "./variables";
+
+.home__title {
+	font-size: 2rem;
+	font-style: italic;
+	& span{
+color: $accent-color;
+	}
+}
+
+.home__subtitle {
+	font-size: 1.5rem;
+	font-style: italic;
+}
+
 .home__content {
 	// display: flex;
 	// flex-direction: row;
 	// gap: 1rem;
+
 	.deeds__section {
 		// width: 50%;
 	}
+
 	.users__section {
 		// width: 50%;
 	}
+}
+
+.new__deed {
+	display: block;
+	margin: auto;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
 }

@@ -1,0 +1,23 @@
+.contact__form {
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	max-width: 40rem;
+	gap: 1rem;
+	flex: 1 1 auto;
+	height: calc(100vh - 10.6rem);
+}
+
+.form__title {
+	font-size: 2rem;
+	font-style: italic;
+	// 	& span{
+	// color: $accent-color;
+	// 	}
+}
+
+.form__description,
+.form__name {
+	font-size: 1.5rem;
+	font-style: italic;
+}
