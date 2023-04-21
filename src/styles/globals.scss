@@ -11,7 +11,7 @@
 
 html {
 	font-size: 16px;
-	height: 100%;
+	height: 100vh;
 }
 
 a {
@@ -19,11 +19,9 @@ a {
 	color: inherit;
 	display: inline-block;
 	transition: $transition-animation;
-	padding: 0.5rem;
 
 	&:hover {
-		background-color: $accent-color;
-		color: $white-color;
+		color: $accent-color;
 		border-radius: 4px;
 	}
 }
@@ -34,36 +32,41 @@ li {
 
 body,
 #__next {
-	height: 100%;
+	height: 100vh;
+	width: 100vw;
 	display: flex;
 	flex-direction: column;
 	color: $font-color;
-	background-color: $background-color;
+	background-color: rgba($color: $background-color, $alpha: 0.5);
 }
 
 .wrapper {
 	position: relative;
 	width: 100%;
+	height: 100%;
 	max-width: 1020px;
 	padding: 1rem 2rem;
 	margin: 0 auto;
+	background-color: $background-color;
 }
 
 button {
-	width: 150px;
+	width: 9.375rem;
+	height: 2.25rem;
 	text-align: center;
 	font-weight: 400;
 	font-size: 1rem;
-	padding: 0;
+	padding: 0.5rem 1rem;
 	border: 1px solid $accent-color;
 	border-radius: 4px;
 	cursor: pointer;
 	transition: $transition-animation;
 	background-color: $danger-color;
-	color: $secondary-color;
+	color: inherit;
 
 	&:hover {
 		background-color: $accent-color;
 		color: $white-color;
 	}
 }
+
