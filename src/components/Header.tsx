@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 
 const navigation = [
 	{ id: 1, title: "Home", path: "/" },
-	{ id: 1, title: "Users", path: "/users" },
+	{ id: 2, title: "Users", path: "/users" },
 ];
 
 const Header = () => {
