@@ -6,7 +6,7 @@ interface IDeedsSetProps {
 	deeds: IDeed[];
 }
 
-const DeedsSet = ({ deeds }: IDeedsSetProps) => {
+const DeedsSet = ({ deeds }: IDeedsSetProps): JSX.Element => {
 	const setStyleLayout = (status: string): string => {
 		let bodyColor: string;
 
@@ -31,7 +31,7 @@ const DeedsSet = ({ deeds }: IDeedsSetProps) => {
 
 	return (
 		<ul className={styles.deeds__set}>
-			{deeds.length > 0 &&
+			{deeds?.length > 0 &&
 				deeds.map((deed) => (
 					<li className={styles.deed__item} key={deed._id}>
 						<article className={`${setStyleLayout(deed.status)} ${styles.deed__body}`}>
@@ -41,7 +41,13 @@ const DeedsSet = ({ deeds }: IDeedsSetProps) => {
 								<p className={styles.deed__description}>{deed.description} </p>
 							</details>
 							{/* <span className={styles.deed__status}>{deed.status}</span> */}
-							<select className={styles.deed__status} id="deedStatus" name="deedStatus" value={deed.status} onChange={async (e) =>changeStatus(e)}>
+							<select
+								className={styles.deed__status}
+								id="deedStatus"
+								name="deedStatus"
+								value={deed.status}
+								onChange={async (e) => changeStatus(e)}
+							>
 								<option>Pending</option>
 								<option>In Progress</option>
 								<option>done</option>
@@ -55,7 +61,6 @@ const DeedsSet = ({ deeds }: IDeedsSetProps) => {
 
 export default DeedsSet;
 
-const changeStatus = (e:ChangeEvent<HTMLSelectElement>) => {
+const changeStatus = (e: ChangeEvent<HTMLSelectElement>) => {
 	console.log(e.target.value);
-	
-}
+};

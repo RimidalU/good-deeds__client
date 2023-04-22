@@ -10,7 +10,7 @@ interface IUsersSetProps {
 const UsersSet = ({ users }: IUsersSetProps) => {
 	return (
 		<ul className={styles.users__set}>
-			{users.length > 0 &&
+			{users?.length > 0 &&
 				users.map((user) => (
 					<Link href={`users/${user._id}`} key={user._id}>
 						<li className={styles.user__item}>

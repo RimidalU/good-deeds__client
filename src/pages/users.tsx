@@ -1,5 +1,4 @@
 import styles from "@/styles/Users.module.scss";
-import Link from "next/link";
 import { IUser } from "@/interfaces/types";
 import Head from "next/head";
 import UsersSet from "@/components/UsersSet";
@@ -8,7 +7,7 @@ interface IUsersProps {
 	users: IUser[];
 }
 
-export default function Users({ users }: IUsersProps) {
+const Users = ({ users }: IUsersProps): JSX.Element => {
 	return (
 		<>
 			<Head>
@@ -23,11 +22,15 @@ export default function Users({ users }: IUsersProps) {
 			</div>
 		</>
 	);
-}
+};
 
 export async function getStaticProps() {
 	const res = await fetch("http://localhost:4000/user/");
 	const users: IUser[] = await res.json();
+
+	if (!users) {
+		return { notFoud: true };
+	}
 
 	return {
 		props: {
@@ -35,3 +38,5 @@ export async function getStaticProps() {
 		},
 	};
 }
+
+export default Users;

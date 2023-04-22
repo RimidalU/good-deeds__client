@@ -9,7 +9,7 @@ interface IUsersProps {
 	user: IUser;
 }
 
-export default function Home({ user }: IUsersProps) {
+const Home = ({ user }: IUsersProps) => {
 	return (
 		<>
 			<Head>
@@ -44,9 +44,14 @@ export async function getStaticProps() {
 	const res = await fetch("http://localhost:4000/user/6441469968baf5a6c7bfeda0");
 	const user: IUser[] = await res.json();
 
+	if (!user) {
+		return { notFoud: true };
+	}
 	return {
 		props: {
 			user,
 		},
 	};
 }
+
+export default Home;
