@@ -1,8 +1,15 @@
 import styles from "@/styles/Header.module.scss";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
-export default function Header() {
-	const isAuth = true;
+const navigation = [
+	{ id: 1, title: "Home", path: "/" },
+	{ id: 1, title: "Users", path: "/users" },
+];
+
+const Header = () => {
+	const isAuth = true; // TODO: add Auth
+	const { pathname } = useRouter();
 
 	return (
 		<header className="header">
@@ -10,16 +17,13 @@ export default function Header() {
 				<h1 className={styles.header__title}>Good Deeds</h1>
 				<nav className={styles.header__nav}>
 					<ul className={styles.nav__set}>
-						<li className="nav__item">
-							<Link href="/" className="nav__link">
-								Home
-							</Link>
-						</li>
-						<li className="nav__item">
-							<Link href="/users" className="nav__link">
-								Users
-							</Link>
-						</li>
+						{navigation.map(({ id, title, path }) => (
+							<li className={pathname === path ? styles.active : styles.nav__item} key={id}>
+								<Link href={path} className="nav__link">
+									{title}
+								</Link>
+							</li>
+						))}
 					</ul>
 				</nav>
 
@@ -28,9 +32,7 @@ export default function Header() {
 						<a className={styles.user__link} href="#">
 							UserName
 						</a>
-						<button className={styles.user__button}>
-							LogOut
-						</button>
+						<button className={styles.user__button}>LogOut</button>
 					</div>
 				) : (
 					<div className={styles.user__control}>
@@ -45,4 +47,6 @@ export default function Header() {
 			</div>
 		</header>
 	);
-}
+};
+
+export default Header;
