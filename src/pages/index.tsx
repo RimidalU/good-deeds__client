@@ -41,7 +41,7 @@ const Home = ({ user }: IUsersProps) => {
 }
 
 export async function getStaticProps() {
-	const res = await fetch("http://localhost:4000/user/6441469968baf5a6c7bfeda0");
+	const res = await fetch(`${process.env.URL}user/6441469968baf5a6c7bfeda0`);
 	const user: IUser[] = await res.json();
 
 	if (!user) {

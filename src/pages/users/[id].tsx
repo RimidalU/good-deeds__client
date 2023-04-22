@@ -1,6 +1,5 @@
 import Head from "next/head";
 import styles from "@/styles/Users.module.scss";
-import { useRouter } from "next/router";
 import { IUser } from "@/interfaces/types";
 import { GetStaticPropsContext } from "next";
 import DeedsSet from "@/components/DeedsSet";
@@ -9,9 +8,14 @@ interface IUserProps {
 	user: IUser;
 }
 
-export default function User({ user }: IUserProps) {
-	const { query } = useRouter();
-
+const User = ({ user }: IUserProps) => {
+	if (!user._id) {
+		return (
+			<div className="wrapper">
+				<h1 className={styles.user__section}>User Not Found!</h1>
+			</div>
+		);
+	}
 	return (
 		<>
 			<Head>
@@ -31,11 +35,13 @@ export default function User({ user }: IUserProps) {
 			</div>
 		</>
 	);
-}
+};
 
 export async function getServerSideProps({ params }: GetStaticPropsContext<{ id: string }>) {
-	const res = await fetch(`http://localhost:4000/user/${params!.id}`);
+	const res = await fetch(`${process.env.URL}user/${params!.id}`);
 	const user: IUser = await res.json();
 
 	return { props: { user } };
 }
+
+export default User;

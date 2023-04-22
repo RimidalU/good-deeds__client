@@ -25,7 +25,7 @@ const Users = ({ users }: IUsersProps): JSX.Element => {
 };
 
 export async function getStaticProps() {
-	const res = await fetch("http://localhost:4000/user/");
+	const res = await fetch(`${process.env.URL}user/`);
 	const users: IUser[] = await res.json();
 
 	if (!users) {
