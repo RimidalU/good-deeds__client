@@ -2,12 +2,15 @@ import { IUser } from "@/interfaces/types";
 import styles from "@/styles/UsersSet.module.scss";
 import Link from "next/link";
 import Image from "next/image";
+import { useSession } from "next-auth/react";
 
 interface IUsersSetProps {
 	users: IUser[];
 }
 
 const UsersSet = ({ users }: IUsersSetProps) => {
+	const { data } = useSession();
+
 	return (
 		<ul className={styles.users__set}>
 			{users?.length > 0 &&
@@ -19,7 +22,9 @@ const UsersSet = ({ users }: IUsersSetProps) => {
 								<div className={styles.user__info}>
 									<h3 className={styles.user__description}>@{user.nickName} </h3>
 									<span>Name: </span>
-									<p className={styles.user__name}>{user.name}</p>
+									<p className={styles.user__name}>
+										{data?.user ? user.name : "Available only to registered users!"}
+									</p>
 								</div>
 							</article>
 						</li>
