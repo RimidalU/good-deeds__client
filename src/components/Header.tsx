@@ -1,4 +1,5 @@
 import styles from "@/styles/Header.module.scss";
+import { signIn, signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
@@ -8,7 +9,7 @@ const navigation = [
 ];
 
 const Header = () => {
-	const isAuth = true; // TODO: add Auth
+	const { data } = useSession();
 	const { pathname } = useRouter();
 
 	return (
@@ -27,19 +28,21 @@ const Header = () => {
 					</ul>
 				</nav>
 
-				{isAuth ? (
+				{data?.user ? (
 					<div className={styles.user__control}>
 						<a className={styles.user__link} href="#">
-							UserName
+							{data?.user.name}
 						</a>
-						<button className={styles.user__button}>LogOut</button>
+						<button className={styles.user__button} onClick={() => signOut()}>
+							LogOut
+						</button>
 					</div>
 				) : (
 					<div className={styles.user__control}>
-						<a className={styles.user__link} href="#">
+						<a className={styles.user__link} href="#" onClick={() => signIn()}>
 							LogIn
 						</a>
-						<a className={styles.user__button} href="#">
+						<a className={styles.user__button} href="/signup">
 							Sign up
 						</a>
 					</div>
