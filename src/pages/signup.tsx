@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { FormEvent } from "react";
 
-export default function Login() {
+const SignUp = () => {
 	const route = useRouter();
 
 	const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -102,4 +102,6 @@ export default function Login() {
 			</div>
 		</>
 	);
-}
+};
+
+export default SignUp;
