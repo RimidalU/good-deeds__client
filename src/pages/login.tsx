@@ -1,38 +1,24 @@
 import Head from "next/head";
 import styles from "@/styles/Auth.module.scss";
-import { useRouter } from "next/router";
 import Link from "next/link";
 import { FormEvent } from "react";
+import { signIn } from "next-auth/react";
 
 const Login = () => {
-	const route = useRouter();
-
 	const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 
-		const data = {
-			email: event.currentTarget.email.value,
-			password: event.currentTarget.password.value,
-		};
+		const email = event.currentTarget.email.value;
+		const password = event.currentTarget.password.value;
 
-		const JSONdata = JSON.stringify(data);
+		const result = await signIn("credentials", {
+			email: email,
+			password: password,
+			redirect: true,
+			callbackUrl: "/",
+		});
 
-		const endpoint = "http://localhost:4000/auth/login";
-
-		const options = {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSONdata,
-		};
-
-		const response = await fetch(endpoint, options);
-
-		const result = await response.json();
-		console.log(result);
-
-		if (result) route.push("/");
+		console.log(result); // TODO: add token!
 	};
 
 	return (
@@ -73,7 +59,7 @@ const Login = () => {
 					</button>
 					<h3 className={styles.form__subtitle}>
 						If not,
-						<Link href={`singup`}>
+						<Link href={'/signup'}>
 							<span>register here</span>
 						</Link>
 					</h3>
