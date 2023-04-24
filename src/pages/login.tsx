@@ -4,8 +4,9 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
 import { log } from "console";
+import exp from "constants";
 
-export default function Login() {
+const Login = () => {
 	const route = useRouter();
 
 	const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -33,7 +34,7 @@ export default function Login() {
 		const result = await response.json();
 		console.log(result);
 
-		if(result) route.push('/')
+		if (result) route.push("/");
 	};
 
 	return (
@@ -82,4 +83,6 @@ export default function Login() {
 			</div>
 		</>
 	);
-}
+};
+
+export default Login;
