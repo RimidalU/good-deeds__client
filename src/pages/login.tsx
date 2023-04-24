@@ -2,9 +2,7 @@ import Head from "next/head";
 import styles from "@/styles/Auth.module.scss";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { FormEvent, useState } from "react";
-import { log } from "console";
-import exp from "constants";
+import { FormEvent } from "react";
 
 const Login = () => {
 	const route = useRouter();
