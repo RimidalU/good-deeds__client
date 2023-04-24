@@ -4,12 +4,15 @@ import { IUser } from "@/interfaces/types";
 import DeedsSet from "@/components/DeedsSet";
 import UsersSet from "@/components/UsersSet";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 interface IUsersProps {
 	user: IUser;
 }
 
 const Home = ({ user }: IUsersProps) => {
+	const { data } = useSession();
+
 	return (
 		<>
 			<Head>
@@ -17,7 +20,7 @@ const Home = ({ user }: IUsersProps) => {
 			</Head>
 			<div className="wrapper">
 				<h1 className={styles.home__title}>
-					Welcome back <span>{user.name}</span>!
+					Welcome back <span>{data?.user?.name}</span>!
 				</h1>
 				<p className={styles.home__subtitle}> Let&apos;s do a good deed!</p>
 				<Link className={styles.new__deed} href={`deeds/newDeed`}>
@@ -38,7 +41,7 @@ const Home = ({ user }: IUsersProps) => {
 			</div>
 		</>
 	);
-}
+};
 
 export async function getStaticProps() {
 	const res = await fetch(`${process.env.URL}user/6441469968baf5a6c7bfeda0`);
